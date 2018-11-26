@@ -158,7 +158,7 @@ After the CloudFormation template is complete, you should receive a welcome emai
 
 ## Analyze thousands of Images 
 
-For analyzing thousands of stock images, uploading the images one by one is not the best use of time. Instead, you can bulk upload the images to your media-analysis S3 bucket. Download all the stock images from [sample image](sample_images/stock-images.zip) and unzip the images to a folder  
+For analyzing thousands of stock images, uploading the images one by one is not the best use of time. Instead, you can bulk upload the images to your media-analysis S3 bucket. Download all the stock images from [SampleImages](https://s3.amazonaws.com/reinvent-media-analysis-workshop/stock-images.zip) and unzip the images to a folder  
 
 If you have the AWS CLI configured, use the S3 sync command described below, please change the folder name and s3 bucket name before running the command
 
