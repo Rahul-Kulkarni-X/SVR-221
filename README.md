@@ -1,5 +1,12 @@
-# Builders Session - Label stock images using Rekognition
-Welcome to the builder's session on creating labels on stock images using Amazon Rekognition and AWS Lambda. The solution, a Node.js implementation is a modified version of [Media Analysis Solution](https://aws.amazon.com/answers/media-entertainment/media-analysis-solution/); a serverless reference implementation to extract metadata from media files. The solution extracts metadata from images, and store resulting metadata for future search and analysis.
+# Builders Session (SRV221)- Serverless Photo Recognition System
+
+#Problem Statement
+
+Imagine that you work for a marketing agency that has tens of thousands of stock images. You find that many images don’t have descriptive file names and that others are completely mislabeled. You don’t want to spend hours and hours relabeling them and moving them around to different folders. What if you could find the images you need without relying on metadata?
+
+#Approach to the Solution
+
+The solution, a Node.js implementation is a modified version of [Media Analysis Solution](https://aws.amazon.com/answers/media-entertainment/media-analysis-solution/); a serverless reference implementation to extract metadata from media files using Amazon Rekognition, AWS Lambda and AWS Step Functions. The solution extracts metadata from images, and store resulting metadata for future search and analysis.
 
 ## Solution Architecture
 
@@ -124,24 +131,6 @@ After the CloudFormation template is complete, you should receive a welcome emai
 
     ![Media Analysis App Landing page screenshot](images/media-analysis-app-landing.png)
 
-## Analyze thousands of Images 
-
-For analyzing thousands of stock images, uploading the images one by one is not the best use of time. Instead, you can bulk upload the images to your media-analysis S3 bucket. Download all the stock images from [here](sample_images/stock-images.zip) and unzip the images to a folder  
-
-If you have the AWS CLI configured, use the S3 sync command described below, please change the folder name and s3 bucket name before running the command
-
-```node
-aws s3 sync <<Replace-With-Your-Folder-with-Stock-Images> s3://<<Media-Analysis-S3-bucket-created>>
-
-```
-or 
-
-Log into the S3 console using the browser and bulk upload all the images to your media-analysis bucket   
-
-
-## Verifying the results  
-
-Log in to the MAS application, click on browse to see all the images listed. Use search to filter labels (example : picnic, drive) and view the results
 
 ## Analyze Images using Media Analysis Solution
 
@@ -167,7 +156,26 @@ Log in to the MAS application, click on browse to see all the images listed. Use
 
 ![](images/mas-image-faceattributes.png)
 
-## Analyze Image and View Progress Workflow
+## Analyze thousands of Images 
+
+For analyzing thousands of stock images, uploading the images one by one is not the best use of time. Instead, you can bulk upload the images to your media-analysis S3 bucket. Download all the stock images from [sample image](sample_images/stock-images.zip) and unzip the images to a folder  
+
+If you have the AWS CLI configured, use the S3 sync command described below, please change the folder name and s3 bucket name before running the command
+
+```node
+aws s3 sync <<Replace-With-Your-Folder-with-Stock-Images> s3://<<Media-Analysis-S3-bucket-created>>
+
+```
+or 
+
+Log into the S3 console using the browser and bulk upload all the images to your media-analysis bucket   
+
+
+## Verifying the results  
+
+Log in to the MAS application, click on browse to see all the images listed. Use search to filter labels (example : picnic, drive) and view the results
+
+## How it works?
 
 1. Download and save [sample image](sample_images/drive.jpg) image on your desktop.
 
