@@ -39,7 +39,8 @@ EU (Ireland) | [![Launch Media Analysis Solution in eu-west-1](http://docs.aws.a
 
 ## Call Rekognition Detect Labels API using AWS Lambda 
   
-1. Click on the main cloud formation stack, select the **Resources** tab from the bottom pane and navigate to Media Analysis Function. Once the status is displayed as `CREATE_COMPLETE` (Takes 2 mins), Click on the hyperlink to open the function in the lambda console
+1. Click on the main cloud formation stack, select the **Resources** tab from the bottom pane and navigate to Media Analysis Function Lambda function. Once the status for the resource is `CREATE_COMPLETE` (Takes 2 mins), Click on the hyperlink to open the function in the lambda console. 
+*Note : The cloud formation status will be in In-Progress* 
 
   ![CloudFormation Stack output screenshot](images/1-CFN-Media-Analysis-Function.png)
 
@@ -122,6 +123,25 @@ After the CloudFormation template is complete, you should receive a welcome emai
 3. You should see the landing page of the Media Analysis Solution, displaying a getting started guide and an overview of the solution architecture.
 
     ![Media Analysis App Landing page screenshot](images/media-analysis-app-landing.png)
+
+## Analyze thousands of Images 
+
+For analyzing thousands of stock images, uploading the images one by one is not the best use of time. Instead, you can bulk upload the images to your media-analysis S3 bucket. Download all the stock images from [here](sample_images/stock-images.zip) and unzip the images to a folder  
+
+If you have the AWS CLI configured, use the S3 sync command described below, please change the folder name and s3 bucket name before running the command
+
+```node
+aws s3 sync <<Replace-With-Your-Folder-with-Stock-Images> s3://<<Media-Analysis-S3-bucket-created>>
+
+```
+or 
+
+Log into the S3 console using the browser and bulk upload all the images to your media-analysis bucket   
+
+
+## Verifying the results  
+
+Log in to the MAS application, click on browse to see all the images listed. Use search to filter labels (example : picnic, drive) and view the results
 
 ## Analyze Images using Media Analysis Solution
 
@@ -223,25 +243,6 @@ After the CloudFormation template is complete, you should receive a welcome emai
 
 ![](images/mas-s3-objectresults.png)
 
-## Analyze thousands of Images 
-
-For analyzing thousands of stock images, uploading the images one by one is not the best use of time. Instead, you can bulk upload the images to your media-analysis S3 bucket. Download all the stock images from [here]((sample_images/stock-images.zip) and unzip the images to a folder  
-
-If you have the AWS CLI configured, use the S3 sync command described below, please change the folder name and s3 bucket name before running the command
-
-```node
-aws s3 sync <<Replace-With-Your-Folder-with-Stock-Images> s3://<<Media-Analysis-S3-bucket-created>>
-
-```
-or 
-
-Log into the S3 console using the browser and bulk upload all the images to your media-analysis bucket   
-
-## 
-
-## Verifying the results  
-
-Log in to the MAS application, click on browse to see all the images listed. Use search to filter labels (example : picnic, drive) and view the results
 
 ## Clean up
 
