@@ -1,10 +1,10 @@
 # Builders Session (SRV221)- Serverless Photo Recognition System
 
-#Problem Statement
+## Problem Statement
 
 Imagine that you work for a marketing agency that has tens of thousands of stock images. You find that many images don’t have descriptive file names and that others are completely mislabeled. You don’t want to spend hours and hours relabeling them and moving them around to different folders. What if you could find the images you need without relying on metadata?
 
-#Approach to the Solution
+## Approach to the Solution
 
 The solution, a Node.js implementation is a modified version of [Media Analysis Solution](https://aws.amazon.com/answers/media-entertainment/media-analysis-solution/); a serverless reference implementation to extract metadata from media files using Amazon Rekognition, AWS Lambda and AWS Step Functions. The solution extracts metadata from images, and store resulting metadata for future search and analysis.
 
